@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevExpressTest.Client\DevExpressTest.Client.csproj" />
-    <PackageReference Include="DevExpress.Blazor" Version="24.2.5-pre-25033" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.10" />
+    <PackageReference Include="DevExpress.Blazor" Version="24.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.2" />
   </ItemGroup>
 
 </Project>

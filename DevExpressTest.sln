@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExpressTest", "DevExpres
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevExpressTest.Client", "DevExpressTest\DevExpressTest.Client\DevExpressTest.Client.csproj", "{79F73432-A58B-4130-BC74-2FB24650F760}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayoutTest", "LayoutTest\LayoutTest\LayoutTest.csproj", "{9C54D1A4-BAF3-4E04-8CD7-889250419E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayoutTest.Client", "LayoutTest\LayoutTest.Client\LayoutTest.Client.csproj", "{FD417A19-42EC-4095-8359-66EFFBF614AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{79F73432-A58B-4130-BC74-2FB24650F760}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79F73432-A58B-4130-BC74-2FB24650F760}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79F73432-A58B-4130-BC74-2FB24650F760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C54D1A4-BAF3-4E04-8CD7-889250419E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C54D1A4-BAF3-4E04-8CD7-889250419E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C54D1A4-BAF3-4E04-8CD7-889250419E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C54D1A4-BAF3-4E04-8CD7-889250419E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD417A19-42EC-4095-8359-66EFFBF614AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD417A19-42EC-4095-8359-66EFFBF614AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD417A19-42EC-4095-8359-66EFFBF614AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD417A19-42EC-4095-8359-66EFFBF614AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
