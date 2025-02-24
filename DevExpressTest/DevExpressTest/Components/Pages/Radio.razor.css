@@ -1,0 +1,28 @@
+﻿.survey-wrapper {
+    max-width: 480px;
+}
+
+.dx-demo-radio-group-label {
+    font-size: inherit;
+    font-weight: 600;
+}
+
+    .dx-demo-radio-group-label.dx-demo-small {
+        font-size: 0.75rem;
+    }
+
+    .dx-demo-radio-group-label.dx-demo-large {
+        font-size: 1rem;
+    }
+
+.dx-demo-form-layout-width {
+    width: 100%;
+}
+
+.dx-demo-radio-group.dx-demo-radio-group-indented {
+    padding-bottom: 1rem;
+}
+
+.dx-demo-radio-group > .dx-demo-radio ~ .dx-demo-radio {
+    padding-top: 0.5rem;
+}

@@ -1,0 +1,138 @@
+﻿@* @page "/CheckBox"
+@using DevExpress.Blazor
+
+<div class="cw-320">
+    <fieldset>
+        <legend class="@GetLabelCssClass(Params?.SizeMode ?? SizeMode.Small)">Choose your new car options:</legend>
+        <div class="dx-demo-select-all-checkbox">
+            <DxCheckBox @bind-Checked="@SelectAllState">
+                Select All
+            </DxCheckBox>
+        </div>
+        <div class="dx-demo-price-list-content">
+            <div class="dx-demo-row">
+                <DxCheckBox @bind-Checked="@Multimedia">Multimedia</DxCheckBox>
+                <div class="@GetCssClass(Multimedia)">$130</div>
+            </div>
+            <div class="dx-demo-row">
+                <DxCheckBox @bind-Checked="@AirConditioning">Air conditioning</DxCheckBox>
+                <div class="@GetCssClass(AirConditioning)">$800</div>
+            </div>
+            <div class="dx-demo-row">
+                <DxCheckBox @bind-Checked="@ParkingSensors">Parking camera</DxCheckBox>
+                <div class="@GetCssClass(ParkingSensors)">$400</div>
+            </div>
+            <div class="dx-demo-row">
+                <DxCheckBox @bind-Checked="@HeatedSeats">Heated seats</DxCheckBox>
+                <div class="@GetCssClass(HeatedSeats)">$230</div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="@GetLabelCssClass(Params?.SizeMode ?? SizeMode.Small) dx-demo-total dx-demo-row">
+        <strong>Total price:</strong>
+        <strong class="@GetCssClass(true)">$@GetTotalPrice()</strong>
+    </div>
+</div>
+
+@code {
+    // Define a parameter for passing "Params" from a parent component
+    [Parameter] public MyParams Params { get; set; } = new MyParams { SizeMode = SizeMode.Medium };
+
+    // State management
+    CarOptions options = CarOptions.AirConditioning | CarOptions.HeatedSeats;
+
+    bool? SelectAllState
+    {
+        get
+        {
+            if (options == CarOptions.None)
+                return false;
+            if (options == CarOptions.All)
+                return true;
+            return null;
+        }
+        set
+        {
+            if (value.HasValue)
+                options = value.Value ? CarOptions.All : CarOptions.None;
+        }
+    }
+
+    bool AirConditioning
+    {
+        get => options.HasFlag(CarOptions.AirConditioning);
+        set => SetOption(value, CarOptions.AirConditioning);
+    }
+
+    bool Multimedia
+    {
+        get => options.HasFlag(CarOptions.Multimedia);
+        set => SetOption(value, CarOptions.Multimedia);
+    }
+
+    bool ParkingSensors
+    {
+        get => options.HasFlag(CarOptions.ParkingSensors);
+        set => SetOption(value, CarOptions.ParkingSensors);
+    }
+
+    bool HeatedSeats
+    {
+        get => options.HasFlag(CarOptions.HeatedSeats);
+        set => SetOption(value, CarOptions.HeatedSeats);
+    }
+
+    // Helper methods
+    void SetOption(bool value, CarOptions enumValue)
+    {
+        if (value)
+            options |= enumValue;
+        else
+            options &= ~enumValue;
+    }
+
+    decimal GetTotalPrice()
+    {
+        decimal price = 0;
+        price += Multimedia ? 130 : 0;
+        price += AirConditioning ? 800 : 0;
+        price += ParkingSensors ? 400 : 0;
+        price += HeatedSeats ? 230 : 0;
+        return price;
+    }
+
+    string GetCssClass(bool selected) => selected ? string.Empty : " dx-demo-text-strikethrough";
+
+    string GetLabelCssClass(SizeMode sizeMode)
+    {
+        var result = "dx-demo-label";
+        if (sizeMode != SizeMode.Medium)
+            result += sizeMode == SizeMode.Large ? " dx-demo-large" : " dx-demo-small";
+        return result;
+    }
+
+    // Supporting classes and enums
+    [Flags]
+    enum CarOptions
+    {
+        None = 0x0,
+        AirConditioning = 0x1,
+        Multimedia = 0x2,
+        ParkingSensors = 0x4,
+        HeatedSeats = 0x8,
+        All = AirConditioning | Multimedia | ParkingSensors | HeatedSeats
+    }
+
+    public class MyParams
+    {
+        public SizeMode SizeMode { get; set; }
+    }
+
+    public enum SizeMode
+    {
+        Small,
+        Medium,
+        Large
+    }
+}
+ *@
